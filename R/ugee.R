@@ -137,7 +137,6 @@ gee <- function(formula = formula(data), id = id, data = parent.frame(),
                 silent = TRUE, contrasts = NULL, scale.fix = FALSE,
                 scale.value = 1, v4.4compat = FALSE)
 {
-    message("Beginning Cgee S-function, @(#) geeformula.q 4.13 98/01/27")
     call <- match.call()
     m <- match.call(expand.dots = FALSE)
     m$R <- m$b <- m$tol <- m$maxiter <- m$link <- m$varfun <-
@@ -186,18 +185,14 @@ gee <- function(formula = formula(data), id = id, data = parent.frame(),
         if(nrow(beta) != p) {
             stop("Dim beta != ncol(x)")
         }
-        message("user\'s initial regression estimate")
-        print(beta)
     }
     else {
-        message("running glm to get initial regression estimate")
 ### <tsl>	beta <- as.numeric(glm(m, family = family)$coef)
         mm <- match.call(expand.dots = FALSE)
         mm$R <- mm$b <- mm$tol <- mm$maxiter <- mm$link <- mm$varfun <-mm$corstr <- mm$Mv <- mm$silent <- mm$contrasts <-mm$scale.fix <- mm$scale.value <- mm$id<-NULL
         mm[[1]]<-as.name("glm")
         beta <- eval(mm, parent.frame())$coef
 ### </tsl>
-        print(beta)
         beta <- as.numeric(beta)
     }
     if(length(id) != length(y))  stop("Id and y not same length")
