@@ -24,3 +24,4 @@ Author: Vincent J Carey [aut],
 Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
 Repository: CRAN
 Date/Publication: 2023-11-27 08:34:51 UTC
+RoxygenNote: 7.2.3
