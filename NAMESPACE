@@ -4,6 +4,8 @@ importFrom(stats, gaussian, model.extract, model.matrix, quantile)
 
 export(gee)
 export(cic)
+export(qic)
+export(quasilik)
 
 S3method(print, gee)
 S3method(print, summary.gee)
