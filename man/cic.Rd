@@ -45,6 +45,10 @@ there to be much of a difference between the two variants of CIC.
 To calculate the CIC value using the method proposed by Hin and Wang specify
 \code{type = "pan"}, while to get the CIC value using the method proposed by
 Hardin and Hilbe specify \code{type = "hh"}.
+
+If the MASS package is loaded then the \code{\link{ginv}} function is used
+for matrix inversion. Otherwise the standard \code{\link{solve}} function is
+used.
 }
 \examples{
 # Marginal analysis of random effects model for wool

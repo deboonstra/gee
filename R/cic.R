@@ -28,6 +28,10 @@
 #' \code{type = "pan"}, while to get the CIC value using the method proposed by
 #' Hardin and Hilbe specify \code{type = "hh"}.
 #'
+#' If the MASS package is loaded then the \code{\link{ginv}} function is used
+#' for matrix inversion. Otherwise the standard \code{\link{solve}} function is
+#' used.
+#'
 #' @return A named numeric vector containing the CIC value for the \code{"gee"}
 #' object under consideration. The name of the value is based on \code{type},
 #' where \code{"CIC"} denotes \code{type = "pan"} and \code{"CIChh"} denotes
@@ -65,7 +69,7 @@ cic <- function(
   if (!(class(tol) %in% c("numeric", "integer"))) {
     stop("tol must be a numeric or an integer value")
   }
-  if (class(envir) != "environment") {
+  if (!is.environment(envir)) {
     stop("envir must be an environment object")
   }
 
